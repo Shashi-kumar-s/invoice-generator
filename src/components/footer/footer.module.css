@@ -1,0 +1,47 @@
+.container {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.container p {
+    font-weight: 600;
+}
+
+.container textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    resize: none;
+}
+
+.signature {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 20px;
+}
+
+.signature p {
+    font-weight: 700;
+}
+
+.addBtn {
+    cursor: pointer;
+}
+
+.photoSection {
+    margin-top: 20px;
+}
+
+.photoSection p {
+    font-weight: 700;
+}
+
+.addPhoto {
+    border: 1px solid gray;
+    width: 300px;
+    height:100px;
+    padding: 20px;
+    margin-top: 10px;
+    border-radius: 10px;
+}
