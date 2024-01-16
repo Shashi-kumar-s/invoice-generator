@@ -1,5 +1,5 @@
 .container {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .inputContainer {
@@ -15,29 +15,45 @@ th {
     border-spacing: 0px 10px;
 }
 
-.table thead tr {
-    border-bottom: 1px solid gray;
-    border-top: 1px solid gray;
-}
 
 .inputContainer input {
     padding: 6px;
+}
+
+.descRow {
+    width: 40%;
 }
 
 .description {
     width: 100%;
 }
 
-.rate {
-    width: 50%;
+.rateRow {
+    width: 20%;
 }
 
-.inputContainer textarea {
-    width: 100%;
-    padding: 6px;
-    resize: none;
+.rate {
+    width: 80%;
+}
+
+.qty {
+    width: 10%;
+    text-align: center;
+}
+
+.check {
+    width: 18px;
+    height: 18px;
+}
+
+input[type="checkbox"] {
+    accent-color: black;
 }
 
 .addDesBtn {
+    cursor: pointer;
+}
+
+.deleteTable {
     cursor: pointer;
 }

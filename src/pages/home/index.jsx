@@ -5,13 +5,14 @@ import Footer from "../../components/footer";
 import SubTotal from "../../components/subTotal";
 import VenderForm from "../../components/venderForm";
 import styles from "../home/home.module.css"
-import { FcAddImage } from "react-icons/fc";
-import { RiChatDeleteFill } from "react-icons/ri";
 import { TiDelete } from "react-icons/ti";
+import { FaCloudUploadAlt } from "react-icons/fa";
+
+
 
 const Home = () => {
-    const fileInputRef = useRef(null);
-    const [selectedImage, setSelectedImage] = useState(null);
+    const fileInputRef = useRef("");
+    const [selectedImage, setSelectedImage] = useState("");
 
     const handleLabelClick = () => {
         fileInputRef.current.click();
@@ -19,7 +20,6 @@ const Home = () => {
 
     const handleFileChange = (e) => {
         const selectedFile = e.target.files[0];
-
         if (selectedFile) {
             const reader = new FileReader();
             reader.onloadend = () => setSelectedImage(reader.result);
@@ -27,8 +27,9 @@ const Home = () => {
         }
     };
 
+
     const handleRemoveImage = () => {
-        setSelectedImage(null);
+        setSelectedImage("");
         fileInputRef.current.value = '';
     };
 
@@ -61,7 +62,7 @@ const Home = () => {
                                 </div>
                             </div>
                         ) : (
-                            <>Upload File</>
+                            <><FaCloudUploadAlt size={24} />Upload logo</>
                         )}
                     </label>
                 </div>

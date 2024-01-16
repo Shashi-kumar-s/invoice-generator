@@ -1,0 +1,24 @@
+.container {
+    margin-top: 20px;
+}
+
+.table {
+    width: 100%;
+}
+
+.description {
+    text-align: left;
+}
+
+.allItems td {
+    text-align: center;
+}
+
+.tablebody {
+    border-bottom: 1px solid gray;
+}
+
+.itemName {
+    text-align: left !important;
+    font-weight: 600;
+}
