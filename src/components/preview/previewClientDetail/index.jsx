@@ -1,20 +1,23 @@
 import styles from "../previewClientDetail/previewClientDetail.module.css"
+import { IoMdCall } from "react-icons/io";
+import { FaMobileRetro } from "react-icons/fa6";
+import { FaFax } from "react-icons/fa";
 
+const PreviewClient = (props) => {
+    const { Name, Email, Address,City, ZipCode, Phone, Mobile, Fax } = props.clientData
 
-const PreviewClient = () => {
     return (
         <div className={styles.container}>
             <div>
-                <p>Bill To</p>
-                <h4>Client Name</h4>
-                <p><span className={styles.businessNum}>Business Number</span>123456789</p>
-                <p>Street Name</p>
-                <p>City Name</p>
-                <p>Zip code</p>
-                <p>Phone</p>
-                <p>Mobile No</p>
-                <p>Fax No</p>
-                <p>Email@gmail.com</p>
+                <p className={styles.billTo}>Bill To</p>
+                <h4 className={styles.clientName}>{Name}</h4>
+                <p>{Address}</p>
+                <p>{City}</p>
+                <p>{ZipCode}</p>
+                <p><IoMdCall size={14}/> {Phone}</p>
+                <p><FaMobileRetro size={15}/> {Mobile}</p>
+                <p><FaFax size={13} /> {Fax}</p>
+                <p>{Email}</p>
             </div>
         </div>
     )

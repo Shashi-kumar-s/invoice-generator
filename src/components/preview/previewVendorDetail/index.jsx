@@ -1,31 +1,32 @@
 import styles from "../previewVendorDetail/previewVendorDetail.module.css"
 
-const PreviewVendorDetail = () => {
+const PreviewVendorDetail = (props) => {
+    const { Name, Email, Address, BusinessNumber, City, Date, InvoiceNumber, ZipCode, Phone } = props.venderData
+
     return (
         <div className={styles.container}>
             <div className={styles.vendorDetail}>
                 <div>
-                    {/* <img src="" alt="" /> */}
-                    <p>Image</p>
+                    <img src={props.image} alt="Logo" width={100} />
                 </div>
-                <div>
-                    <h2>Vendor Name</h2>
-                    <p><span className={styles.businessNum}>Business Number</span>123456789</p>
-                    <p>Street Name</p>
-                    <p>City Name</p>
-                    <p>Zip code</p>
-                    <p>Phone</p>
-                    <p>Email@gmail.com</p>
+                <div className={styles.vendorAdd}>
+                    <h2 className={styles.vendorName}>{Name}</h2>
+                    <p><span className={styles.businessNum}>Business Number</span>{BusinessNumber}</p>
+                    <p>{Address}</p>
+                    <p>{City}</p>
+                    <p>{ZipCode}</p>
+                    <p>{Phone}</p>
+                    <p>{Email}</p>
                 </div>
             </div>
             <div className={styles.clientDetail}>
                 <div>
-                    <p className={styles.clientTitle}>INVOICE</p>
-                    <p>123456</p>
+                    <p className={styles.clientTitle}>INVOICE NO</p>
+                    <p>{InvoiceNumber}</p>
                 </div>
                 <div>
                     <p className={styles.clientTitle}>DATE</p>
-                    <p>12-03-2006</p>
+                    <p>{Date}</p>
                 </div>
                 <div>
                     <p className={styles.clientTitle}>DUE</p>

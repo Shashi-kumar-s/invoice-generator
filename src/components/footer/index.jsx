@@ -5,10 +5,9 @@ import { useRef, useState } from "react";
 import { TiDelete } from "react-icons/ti";
 import { FaCloudUploadAlt } from "react-icons/fa";
 
-const Footer = () => {
+const Footer = ({ uploadImage, setUploadImage,setSignUrl,signUrl }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const fileInputRef = useRef("");
-    const [selectedImage, setSelectedImage] = useState("");
 
     const openModal = () => {
         setIsModalOpen(true);
@@ -26,13 +25,13 @@ const Footer = () => {
         const selectedFile = e.target.files[0];
         if (selectedFile) {
             const reader = new FileReader();
-            reader.onloadend = () => setSelectedImage(reader.result);
+            reader.onloadend = () => setUploadImage(reader.result);
             reader.readAsDataURL(selectedFile);
         }
     };
 
     const handleRemoveImage = () => {
-        setSelectedImage("");
+        setUploadImage("");
         fileInputRef.current.value = '';
     };
 
@@ -44,7 +43,7 @@ const Footer = () => {
             <div className={styles.signature}>
                 <p>Signature</p>
                 <MdAddBox size={32} className={styles.addBtn} onClick={openModal} />
-                <SignaturePad isOpen={isModalOpen} onClose={closeModal} onOpen={openModal} />
+                <SignaturePad isOpen={isModalOpen} onClose={closeModal} onOpen={openModal} signUrl={signUrl} setSignUrl={setSignUrl} />
             </div>
             <div className={styles.photoSection}>
                 <p>Photo</p>
@@ -60,10 +59,10 @@ const Footer = () => {
                         className={styles.fileLabel}
                         onClick={handleLabelClick}
                     >
-                        {selectedImage ? (
+                        {uploadImage ? (
                             <div className={styles.file}>
                                 <div>
-                                    <img src={selectedImage} alt="Selected" />
+                                    <img src={uploadImage} alt="Selected" />
                                 </div>
                                 <div className={styles.updateBtnGrp}>
                                     <button className={styles.updateButton}>Update photo</button>

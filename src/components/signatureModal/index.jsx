@@ -4,9 +4,8 @@ import ReactSignatureCanvas from "react-signature-canvas";
 import { TiEdit } from "react-icons/ti";
 import { TiDeleteOutline } from "react-icons/ti";
 
-const SignaturePad = ({ isOpen, onClose, onOpen }) => {
+const SignaturePad = ({ isOpen, onClose, onOpen, setSignUrl, signUrl }) => {
     const signnatureRef = useRef()
-    const [signUrl, setSignUrl] = useState("")
 
     const handleClear = () => {
         signnatureRef.current.clear()

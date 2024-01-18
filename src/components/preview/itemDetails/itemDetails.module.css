@@ -1,9 +1,28 @@
 .container {
     margin-top: 20px;
+    color: #555555;
+}
+
+.table th {
+    padding: 0px !important;
 }
 
 .table {
     width: 100%;
+}
+
+
+.rate {
+    text-align: end;
+    padding-right: 10px;
+}
+
+.qty {
+    text-align: end;
+}
+
+.amount {
+    text-align: end;
 }
 
 .description {
@@ -11,14 +30,19 @@
 }
 
 .allItems td {
-    text-align: center;
+    text-align: end;
 }
 
 .tablebody {
     border-bottom: 1px solid gray;
+    width: 100%;
 }
 
 .itemName {
     text-align: left !important;
     font-weight: 600;
+}
+
+.itemqty {
+    padding-right: 10px;
 }

@@ -5,13 +5,12 @@ import { TiDelete } from "react-icons/ti";
 
 
 
-const DescriptionForm = () => {
-    const [tableRows, setTableRows] = useState([{ id: 1, description: '', rate: '', qty: '', amount: '0.00', tax: true }]);
+const DescriptionForm = ({ tableRows, setTableRows }) => {
 
     const handleAddRow = () => {
         setTableRows(prevRows => [
             ...prevRows,
-            { id: prevRows.length + 1,amount:"0.00",tax:true},
+            { id: prevRows.length + 1, description: '', rate: '', qty: '1', amount: '0.00', tax: true },
         ]);
     };
 
@@ -25,8 +24,16 @@ const DescriptionForm = () => {
     const handleInputChange = (index, field, value) => {
         const updatedRows = [...tableRows];
         updatedRows[index][field] = value;
+
+        if (field === "rate" || field === "qty") {
+            const rate = parseFloat(updatedRows[index].rate) || 0;
+            const qty = parseFloat(updatedRows[index].qty) || 0;
+            updatedRows[index].amount = (rate * qty).toFixed(2);
+        }
         setTableRows(updatedRows);
     };
+
+
 
     return (
         <div className={styles.container}>

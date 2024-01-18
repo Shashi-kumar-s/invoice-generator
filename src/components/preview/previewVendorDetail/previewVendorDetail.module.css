@@ -1,15 +1,17 @@
 .container {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     border-bottom: 1px solid rgb(207, 199, 199);
     padding-bottom: 20px;
     color: #555555;
 }
 
+.vendorName {
+    text-transform: capitalize;
+}
+
 .vendorDetail {
     display: flex;
-    align-items: center;
     gap: 40px;
 }
 
@@ -17,8 +19,15 @@
     font-size: 14px;
 }
 
+.vendorAdd {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-weight: 400;
+}
+
 .businessNum {
-    font-weight: 600;
+    font-weight: 700;
     margin-right: 8px;
     font-size: 16px;
 }

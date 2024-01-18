@@ -13,10 +13,14 @@
 .SubTotal {
     display: flex;
     justify-content: space-between;
-    width: 35%;
+    width: 30%;
+}
+
+.title {
+    font-weight: 700;
 }
 
 .total {
-    font-weight: 700;
+    font-weight: 800;
     font-size: 18px;
 }

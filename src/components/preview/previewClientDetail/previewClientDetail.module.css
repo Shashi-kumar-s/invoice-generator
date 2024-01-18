@@ -5,6 +5,14 @@
     color: #555555;
 }
 
+.billTo {
+    padding: 10px 0;
+}
+
+.clientName {
+    text-transform: capitalize;
+    font-size: 18px;
+}
 
 .businessNum {
     font-weight: 600;
