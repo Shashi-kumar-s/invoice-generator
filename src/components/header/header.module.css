@@ -1,0 +1,118 @@
+.topnav {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    margin: 20px 0;
+}
+
+.invoice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.invoice p {
+    font-weight: 500;
+    font-size: 28px;
+    border-bottom: 1px dashed gray;
+}
+
+.invoiceDetails {
+    display: flex;
+    flex-direction: column;
+    width: 47%;
+    gap: 15px;
+}
+
+.invoiceDetails input {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid;
+    width: 60%;
+}
+
+.invoiceNo {
+    display: flex;
+    justify-content: space-between;
+}
+
+.invoiceDetails button {
+    display: flex;
+    align-items: center;
+    border: none;
+    background-color: transparent;
+    gap: 8px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.invoiceDetails label {
+    border-bottom: 1px dashed gray;
+    padding-bottom: 5px;
+}
+
+.title {
+    padding: 30px 50px;
+    border: 1px solid gray;
+    border-radius: 10px;
+}
+
+.addLogoBtn {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+}
+
+
+.uploadImg {
+    display: none;
+}
+
+.fileLabel {
+    padding: 10px 10px;
+    font-size: 16px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.file:hover .updateBtnGrp {
+    display: flex;
+}
+
+.fileLabel img {
+    max-width: 180px;
+    max-height: 180px;
+}
+
+.updateBtnGrp {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 10px;
+    display: none;
+}
+
+.updateButton {
+    cursor: pointer;
+    border-radius: 2px;
+    padding: 2px 10px;
+    border: none;
+    background-color: rgb(199, 199, 214);
+
+}
+
+.removeButton {
+    margin-left: 10px;
+    padding: 5px 10px;
+    background-color: #dc3545;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}

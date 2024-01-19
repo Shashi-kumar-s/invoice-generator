@@ -7,13 +7,61 @@
     border-bottom: 1px solid rgb(203, 201, 201);
     padding: 10px;
     margin-top: 10px;
+    color: #555555;
+}
+
+.additionalCharge {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 15px 0;
+}
+
+.discountSection {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.discountSection input {
+    width: 30%;
+}
+
+.discountSection input,
+select {
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
+}
+
+.select {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.discountBtn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.discountBtn:hover {
+    color: blueviolet;
+}
+
+.deleteDiscBtn {
+    cursor: pointer;
 }
 
 .SubTotal {
     display: flex;
-    gap: 40px;
+    justify-content: space-between;
+    width: 35%;
 }
 
 .total {
     font-weight: 700;
+    font-size: 18px;
 }

@@ -1,5 +1,6 @@
 .container {
-    /* border: 1px solid; */
+    width: 48%;
+
 }
 
 .title {
@@ -7,10 +8,17 @@
     font-weight: 500;
 }
 
+.title2 {
+    font-size: 14px;
+}
+
 .form {
+    border: 1px solid #c4cfde;
+    padding: 20px;
+    border-radius: 5px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     margin-top: 10px;
 }
 
@@ -29,4 +37,11 @@
     font-size: 17px;
     padding: 6px;
     width: 100%;
+    border: none;
+    border-bottom: 1px solid #c4cfde;
+    outline: none;
+}
+
+.form input:hover {
+    border-bottom: 1px solid purple;
 }
