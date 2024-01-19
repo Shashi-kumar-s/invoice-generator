@@ -4,7 +4,7 @@ import { venderFormData } from "../../utils/venderFormDetails"
 const VenderForm = ({ handleChange, venderData }) => {
     return (
         <div className={styles.container}>
-            <p className={styles.title}>Billed By <span>(Your Details)</span></p>
+            <p className={styles.title}>Billed By <span className={styles.title2}>(Your Details)</span></p>
             <form className={styles.form}>
                 {venderFormData.map((ele) =>
                     <div key={ele.id} className={styles.inputContainer}>

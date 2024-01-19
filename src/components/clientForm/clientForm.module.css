@@ -7,6 +7,10 @@
     font-weight: 500;
 }
 
+.title2 {
+    font-size: 14px;
+}
+
 .form {
     border: 1px solid #c4cfde;
     padding: 20px;

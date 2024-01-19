@@ -5,9 +5,8 @@ import Footer from "../../components/footer";
 import SubTotal from "../../components/subTotal";
 import VenderForm from "../../components/venderForm";
 import styles from "../home/home.module.css"
-import { TiDelete } from "react-icons/ti";
-import { FaCloudUploadAlt } from "react-icons/fa";
 import Preview from "../preview";
+import Header from "../../components/header";
 
 
 
@@ -20,6 +19,10 @@ const Home = ({ showPreview }) => {
     const [clientData, setClientData] = useState({ Name: "", Email: "", Address: "", City: "", ZipCode: "", Phone: "", Mobile: "", Fax: "" })
     const [tableRows, setTableRows] = useState([{ id: 1, description: '', rate: '', qty: '1', amount: '0.00', tax: true }]);
     const [subTotal, setSubTotal] = useState("");
+    const [showDiscountInTable, setShowDiscountInTable] = useState(false)
+    const [discountOnTotal, setDiscountOnTotal] = useState("")
+    const [discountType, setDiscountType] = useState("")
+    const [discount, setDiscount] = useState("")
 
 
     const handleLabelClick = () => {
@@ -35,26 +38,45 @@ const Home = ({ showPreview }) => {
         }
     };
 
+
     const handleRemoveImage = () => {
         setSelectedImage("");
         fileInputRef.current.value = '';
     };
 
-
     const handleChangeForVenderData = (e) => {
         setVenderData({ ...venderData, [e.target.name]: e.target.value })
     }
+
     const handleChangeForClientData = (e) => {
         setClientData({ ...clientData, [e.target.name]: e.target.value })
     }
 
+
+    const handleDiscount = (e) => {
+        setDiscount(e.target.value)
+
+    }
+    const handleDiscountType = (e) => {
+        setDiscountType(e.target.value)
+    }
+
+
     useEffect(() => {
         const newSubtotal = tableRows.reduce((acc, row) => acc + parseFloat(row.amount), 0);
         setSubTotal(newSubtotal.toFixed(2));
-    }, [tableRows]);
+        if (discountType === "percent") {
+            setDiscountOnTotal(subTotal * discount / 100)
+        }
+        if (discountType === "rupees") {
+            setDiscountOnTotal(subTotal-discount)
+        }
+    }, [tableRows, discount, discountType]);
 
-    // console.log(signImage, "#########");
 
+    // console.log(discountType, "#######");
+    // console.log(discount, "dis");
+    console.log(discountOnTotal, "@@@@@2");
     return (
         <>
             {showPreview ?
@@ -64,51 +86,20 @@ const Home = ({ showPreview }) => {
                     selectedImage={selectedImage}
                     tableRows={tableRows}
                     subTotal={subTotal}
-                    uploadImage={uploadImage}
+                    uploadImage={uploadImage} 
                     signUrl={signUrl}
                 />
                 : <div className={styles.container}>
-                    <div className={styles.topnav}>
-                        <div className={styles.invoice}>
-                            <p>Invoice</p>
-                        </div>
-                        <div>
-                            <input
-                                type="file"
-                                ref={fileInputRef}
-                                onChange={handleFileChange}
-                                className={styles.uploadImg}
-                            />
-                            <label
-                                htmlFor="fileInput"
-                                className={styles.fileLabel}
-                                onClick={handleLabelClick}
-                            >
-                                {selectedImage ? (
-                                    <div className={styles.file}>
-                                        <div>
-                                            <img src={selectedImage} alt="Selected" />
-                                        </div>
-                                        <div className={styles.updateBtnGrp}>
-                                            <button className={styles.updateButton}>Update your logo</button>
-                                            <TiDelete size={28} onClick={handleRemoveImage} />
-                                        </div>
-                                    </div>
-                                ) : (
-                                    <><FaCloudUploadAlt size={24} />Upload logo</>
-                                )}
-                            </label>
-                        </div>
-                    </div>
+                    <Header fileInputRef={fileInputRef} handleFileChange={handleFileChange} handleLabelClick={handleLabelClick} handleRemoveImage={handleRemoveImage} selectedImage={selectedImage} />
                     <div className={styles.formContainer}>
                         <VenderForm handleChange={handleChangeForVenderData} venderData={venderData} />
                         <ClientForm handleChange={handleChangeForClientData} clientData={clientData} />
                     </div>
                     <div>
-                        <DescriptionForm tableRows={tableRows} setTableRows={setTableRows} />
+                        <DescriptionForm tableRows={tableRows} setTableRows={setTableRows} showDiscountInTable={showDiscountInTable} />
                     </div>
                     <div>
-                        <SubTotal subTotal={subTotal} />
+                        <SubTotal subTotal={subTotal} showDiscountInTable={showDiscountInTable} setShowDiscountInTable={setShowDiscountInTable} handleDiscountType={handleDiscountType} handleDiscount={handleDiscount} discount={discount} discountOnTotal={discountOnTotal}/>
                     </div>
                     <div>
                         <Footer uploadImage={uploadImage} setUploadImage={setUploadImage} signUrl={signUrl} setSignUrl={setSignUrl} />

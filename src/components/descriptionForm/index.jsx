@@ -5,7 +5,9 @@ import { TiDelete } from "react-icons/ti";
 
 
 
-const DescriptionForm = ({ tableRows, setTableRows }) => {
+const DescriptionForm = ({ tableRows, setTableRows, showDiscountInTable }) => {
+
+
 
     const handleAddRow = () => {
         setTableRows(prevRows => [
@@ -44,8 +46,8 @@ const DescriptionForm = ({ tableRows, setTableRows }) => {
                             <th>DESCRIPTION</th>
                             <th>RATE</th>
                             <th>QTY</th>
+                            {showDiscountInTable && <th>Discount</th>}
                             <th>AMOUNT</th>
-                            <th>TAX</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -61,10 +63,10 @@ const DescriptionForm = ({ tableRows, setTableRows }) => {
                                 <td className={styles.qty}>
                                     <input type="text" placeholder="1" value={row.qty} onChange={(e) => handleInputChange(index, 'qty', e.target.value)} className={styles.rate} />
                                 </td>
+                                {showDiscountInTable && <td>
+                                    <input type="text" placeholder="%" onChange={(e) => handleInputChange(index, 'discount', e.target.checked)} />
+                                </td>}
                                 <td>{row.amount}</td>
-                                <td>
-                                    <input type="checkbox" checked={row.tax} onChange={(e) => handleInputChange(index, 'tax', e.target.checked)} className={styles.check} />
-                                </td>
                                 <td>
                                     {index > 0 && <TiDelete size={28} onClick={() => handleDeleteRow(index)} className={styles.deleteTable} />}
                                 </td>

@@ -18,6 +18,9 @@ th {
 
 .inputContainer input {
     padding: 6px;
+    border: none;
+    border-bottom: 1px solid;
+    outline: none;
 }
 
 .descRow {
